@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ink: 15 23 42;
+    --color-accent: 249 115 22;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto max-w-container px-6 sm:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-150;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white hover:bg-accent-dark;
+  }
+
+  .btn-secondary {
+    @apply btn border border-ink/20 bg-white text-ink hover:bg-surface-subtle;
+  }
+
+  .btn-dark {
+    @apply btn bg-ink text-white hover:bg-ink-soft;
+  }
+
+  .eyebrow {
+    @apply inline-block text-xs font-semibold uppercase tracking-widest text-accent;
+  }
+
+  .section {
+    @apply py-20 sm:py-24;
+  }
+}
