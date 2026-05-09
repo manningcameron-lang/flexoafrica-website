@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --color-ink: 15 23 42;
-    --color-accent: 249 115 22;
+    --color-ink: 15 46 95;
+    --color-accent: 220 38 38;
   }
 
   html {

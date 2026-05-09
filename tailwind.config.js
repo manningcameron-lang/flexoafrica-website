@@ -7,21 +7,30 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Modern Industrial palette
+        // Brand palette — pulled from Flexo Africa logo
         ink: {
-          DEFAULT: "#0F172A",
-          soft: "#1E293B",
+          DEFAULT: "#0F2E5F", // navy from wordmark
+          soft: "#1E3A8A",
           muted: "#475569",
         },
         accent: {
-          DEFAULT: "#F97316",
-          dark: "#EA580C",
-          light: "#FFEDD5",
+          DEFAULT: "#DC2626", // red from logo stripe
+          dark: "#991B1B",
+          light: "#FEE2E2",
         },
         surface: {
           DEFAULT: "#FFFFFF",
           subtle: "#F8FAFC",
           gray: "#F1F5F9",
+        },
+        brand: {
+          yellow: "#F5C518",
+          orange: "#EA580C",
+          red: "#DC2626",
+          darkRed: "#991B1B",
+          blue: "#1E40AF",
+          teal: "#0EA5E9",
+          green: "#16A34A",
         },
       },
       fontFamily: {

@@ -66,7 +66,7 @@ export default function ContactPage() {
       <section className="section bg-surface-subtle">
         <div className="container-x">
           <span className="eyebrow">Find us</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink">Assagay, KwaZulu-Natal</h2>
+          <h2 className="mt-3 text-3xl font-bold text-ink">Durban, KwaZulu-Natal</h2>
           <div className="mt-8 overflow-hidden rounded-xl border border-ink/10 bg-white">
             <iframe
               title="Flexo Africa location map"

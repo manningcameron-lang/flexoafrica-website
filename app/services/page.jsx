@@ -150,7 +150,7 @@ function Process() {
               key={step.step}
               className={`rounded-xl p-8 ${
                 step.highlight
-                  ? "bg-accent text-white shadow-cardHover"
+                  ? "bg-brand-blue text-white shadow-cardHover"
                   : "bg-white border border-ink/10 shadow-card"
               }`}
             >

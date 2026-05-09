@@ -3,7 +3,7 @@ import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
   title: "About",
-  description: `Learn about ${site.name}, a flexographic plate broker based in Assagay, KwaZulu-Natal.`,
+  description: `Learn about ${site.name}, a flexographic plate broker based in Durban, KwaZulu-Natal.`,
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="A plate broker built for printers."
-        subtitle={`${site.name} is a flexographic plate brokerage based in Assagay, KwaZulu-Natal, serving printers across South Africa.`}
+        subtitle={`${site.name} is a flexographic plate brokerage based in Durban, KwaZulu-Natal, serving printers across South Africa.`}
       />
 
       <section className="section">
@@ -53,12 +53,12 @@ export default function AboutPage() {
         <div className="container-x grid gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
             <span className="eyebrow">Where we are</span>
-            <h2 className="mt-3 text-2xl font-bold text-ink">Based in Assagay, KZN</h2>
+            <h2 className="mt-3 text-2xl font-bold text-ink">Based in Durban, KZN</h2>
           </div>
           <div className="md:col-span-2 text-ink-muted">
             <p>
-              Our team is based in Assagay, KwaZulu-Natal, between Hillcrest and Cato Ridge.
-              We deliver plates to printers across South Africa.
+              Our team is based in Durban, KwaZulu-Natal. We deliver plates to printers
+              across South Africa.
             </p>
             <address className="not-italic mt-4 text-ink">
               {a.line1 !== "TBD" && <>{a.line1}<br /></>}

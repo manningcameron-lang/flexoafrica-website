@@ -9,11 +9,12 @@ export default function Footer() {
     <footer className="bg-ink text-white mt-20">
       <div className="container-x py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-1">
-          <div className="flex items-center gap-2 font-semibold">
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-accent text-white text-sm">
-              FA
-            </span>
-            <span>{site.name}</span>
+          <div className="bg-white rounded-lg p-3 inline-block">
+            <img
+              src="/images/logo.png"
+              alt={`${site.name} logo`}
+              className="h-10 w-auto"
+            />
           </div>
           <p className="mt-4 text-sm text-white/70 max-w-xs">{site.tagline}</p>
         </div>

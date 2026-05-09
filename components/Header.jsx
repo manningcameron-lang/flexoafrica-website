@@ -18,8 +18,12 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-surface/95 backdrop-blur">
       <div className="container-x flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-ink font-semibold tracking-tight">
-          <LogoMark />
-          <span>{site.name}</span>
+          <img
+            src="/images/logo.png"
+            alt={`${site.name} logo`}
+            className="h-10 w-auto"
+          />
+          <span className="sr-only">{site.name}</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -83,14 +87,6 @@ export default function Header() {
         </div>
       )}
     </header>
-  );
-}
-
-function LogoMark() {
-  return (
-    <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-ink text-white font-bold text-sm">
-      FA
-    </span>
   );
 }
 
