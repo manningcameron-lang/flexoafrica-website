@@ -18,7 +18,7 @@ export default function ServicesPage() {
       />
 
       <Brokerage />
-      <PlateRanges />
+      <Substrates />
       <QualityControl />
       <Turnaround />
       <Process />
@@ -39,8 +39,8 @@ function Brokerage() {
           <p>
             Picking a flexographic plate isn't just about brand. The right thickness,
             durometer, and finish for the substrate and print run can make or break a job.
-            We've spent years learning what works for which combinations, and we work with
-            both Polyflex and Stallion so we're never tied to a single vendor.
+            With over 20 years of experience across all substrates, we recommend the right
+            plate for the work, not the easiest one to source.
           </p>
           <p className="mt-4">
             Send us your artwork and substrate. We'll come back with a recommendation
@@ -52,41 +52,40 @@ function Brokerage() {
   );
 }
 
-function PlateRanges() {
+function Substrates() {
+  const items = [
+    "Films and foils",
+    "Corrugated",
+    "Labels and tags",
+    "Folding cartons",
+    "Paper and board",
+    "Specialist substrates",
+  ];
   return (
     <section className="section bg-surface-subtle">
       <div className="container-x">
         <div className="max-w-2xl">
-          <span className="eyebrow">Plate types</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink">Full ranges from both suppliers</h2>
+          <span className="eyebrow">Substrates we cover</span>
+          <h2 className="mt-3 text-3xl font-bold text-ink">Every substrate you'll find on a press.</h2>
           <p className="mt-3 text-ink-muted">
-            We stock and supply the full range of plates from Polyflex and Stallion. If you
-            don't see what you need, ask us. Custom and specialist sizes are available.
+            We've worked across the full range of flexographic substrates over the years.
+            If it prints, we've sourced plates for it.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <PlateCard title="Polyflex" items={site.plateRanges.polyflex} />
-          <PlateCard title="Stallion" items={site.plateRanges.stallion} />
+        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map((item) => (
+            <div
+              key={item}
+              className="flex items-center gap-3 rounded-md bg-white px-5 py-4 shadow-card"
+            >
+              <span className="h-2 w-2 rounded-full bg-accent" />
+              <span className="text-sm font-medium text-ink">{item}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  );
-}
-
-function PlateCard({ title, items }) {
-  return (
-    <div className="rounded-xl bg-white p-8 shadow-card">
-      <h3 className="text-xl font-semibold text-ink">{title}</h3>
-      <ul className="mt-6 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-ink-muted">
-        {items.map((item) => (
-          <li key={item} className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-            {item}
-          </li>
-        ))}
-      </ul>
-    </div>
   );
 }
 
@@ -99,7 +98,8 @@ function QualityControl() {
           <h2 className="mt-3 text-2xl font-bold text-ink">Checked before it leaves us.</h2>
           <p className="mt-3 text-ink-muted text-sm">
             Every plate runs through a structured QC checklist before dispatch. The same
-            checklist drives the For Checking stage in our MIS, so nothing slips through.
+            checklist drives the For Checking stage in our Client Portal, so nothing slips
+            through.
           </p>
         </div>
         <div className="md:col-span-2 grid gap-2 sm:grid-cols-2">
@@ -170,7 +170,7 @@ function Process() {
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 hover:underline"
                 >
-                  Open the MIS
+                  Open the Client Portal
                   <ArrowIcon />
                 </a>
               )}
@@ -179,7 +179,8 @@ function Process() {
         </div>
 
         <div className="mt-12 rounded-xl border border-ink/10 bg-surface-subtle p-6 text-sm text-ink-muted">
-          <strong className="text-ink">Already a customer?</strong> Sign in to your portal at{" "}
+          <strong className="text-ink">Already a customer?</strong> Sign in to your Client
+          Portal at{" "}
           <a href={site.misUrl} className="text-accent font-semibold underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer">
             jobs.flexoafrica.com
           </a>{" "}

@@ -37,23 +37,40 @@ export default function Footer() {
             Contact
           </h4>
           <ul className="mt-4 space-y-2 text-sm text-white/80">
-            <li>{site.contact.phone}</li>
-            <li>{site.contact.email}</li>
-            <li className="text-white/70">{site.contact.hours}</li>
+            <li>
+              <a href={`tel:${site.contact.phoneTel}`} className="hover:text-white">
+                {site.contact.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                WhatsApp: {site.contact.whatsapp}
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${site.contact.email}`} className="hover:text-white">
+                {site.contact.email}
+              </a>
+            </li>
+            <li className="text-white/70 pt-2">{site.contact.hours}</li>
             <li className="pt-2 text-white/70">
-              {a.line1}<br />
-              {a.line2}, {a.city}<br />
-              {a.province}, {a.country}
+              {a.city}, {a.province}<br />
+              {a.country}
             </li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-widest text-white/60">
-            Customer portal
+            Client Portal
           </h4>
           <p className="mt-4 text-sm text-white/80">
-            Track your jobs in real time on our management system.
+            Track your jobs in real time on our portal.
           </p>
           <a
             href={site.misUrl}
@@ -61,14 +78,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="btn-primary mt-4"
           >
-            Sign In to MIS
+            Open Client Portal
           </a>
         </div>
       </div>
 
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-col sm:flex-row items-center justify-between text-xs text-white/60 gap-2">
-          <p>© {year} {site.legalName}. All rights reserved.</p>
+          <p>© {year} {site.legalName}. Established {site.founded}.</p>
           <p>Built with care in KwaZulu-Natal.</p>
         </div>
       </div>

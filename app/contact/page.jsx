@@ -3,7 +3,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact",
-  description: `Get in touch with ${site.name}. Phone, email, address and contact form.`,
+  description: `Get in touch with ${site.name}. Phone, WhatsApp, email, address and contact form.`,
 };
 
 export default function ContactPage() {
@@ -35,13 +35,43 @@ export default function ContactPage() {
               <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
                 Phone
               </h3>
-              <p className="mt-2 text-lg text-ink">{site.contact.phone}</p>
+              <p className="mt-2 text-lg">
+                <a
+                  href={`tel:${site.contact.phoneTel}`}
+                  className="text-ink hover:text-accent"
+                >
+                  {site.contact.phone}
+                </a>
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
+                WhatsApp
+              </h3>
+              <p className="mt-2 text-lg">
+                <a
+                  href={site.contact.whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-ink hover:text-brand-green"
+                >
+                  <WhatsAppIcon />
+                  {site.contact.whatsapp}
+                </a>
+              </p>
             </div>
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
                 Email
               </h3>
-              <p className="mt-2 text-lg text-ink break-all">{site.contact.email}</p>
+              <p className="mt-2 text-lg">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="text-ink hover:text-accent break-all"
+                >
+                  {site.contact.email}
+                </a>
+              </p>
             </div>
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
@@ -49,8 +79,8 @@ export default function ContactPage() {
               </h3>
               <address className="mt-2 not-italic text-ink">
                 {a.line1 !== "TBD" && <>{a.line1}<br /></>}
-                {a.line2}, {a.city}<br />
-                {a.province}, {a.country}
+                {a.city}, {a.province}<br />
+                {a.country}
               </address>
             </div>
             <div>
@@ -88,7 +118,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold">Already a customer?</h3>
               <p className="mt-2 text-white/80 max-w-xl">
-                Sign in to your portal to track your jobs in real time.
+                Sign in to your Client Portal to track your jobs in real time.
               </p>
             </div>
             <a
@@ -97,11 +127,24 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="btn-primary whitespace-nowrap"
             >
-              Sign In to MIS
+              Open Client Portal
             </a>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg
+      className="h-5 w-5 text-brand-green"
+      viewBox="0 0 32 32"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M16 0C7.2 0 0 7.2 0 16c0 2.8.7 5.5 2.1 7.9L0 32l8.4-2.2C10.7 31.3 13.3 32 16 32c8.8 0 16-7.2 16-16S24.8 0 16 0zm0 29.3c-2.5 0-4.9-.7-7-1.9l-.5-.3-5 1.3 1.3-4.9-.3-.5C3.3 21 2.7 18.5 2.7 16 2.7 8.7 8.7 2.7 16 2.7S29.3 8.7 29.3 16 23.3 29.3 16 29.3zm7.7-9.9c-.4-.2-2.5-1.2-2.9-1.4-.4-.1-.7-.2-.9.2-.3.4-1.1 1.4-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.2-1.1-2.1-2.5-2.3-2.9-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.3.1-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.7-.7-.7-.9-.7h-.8c-.3 0-.7.1-1 .5s-1.3 1.3-1.3 3.1c0 1.8 1.3 3.6 1.5 3.8.2.3 2.6 4 6.4 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5z" />
+    </svg>
   );
 }

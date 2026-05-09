@@ -31,20 +31,20 @@ export default function AboutPage() {
       <section className="section bg-surface-subtle">
         <div className="container-x grid gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
-            <span className="eyebrow">Our suppliers</span>
-            <h2 className="mt-3 text-2xl font-bold text-ink">Direct relationships</h2>
-            <p className="mt-3 text-ink-muted text-sm">
-              We partner directly with two of South Africa's best-known flexographic plate
-              manufacturers. That means consistent quality and reliable lead times.
-            </p>
+            <span className="eyebrow">Experience</span>
+            <h2 className="mt-3 text-2xl font-bold text-ink">{site.yearsExperience} years across all substrates</h2>
           </div>
-          <div className="md:col-span-2 grid gap-6 sm:grid-cols-2">
-            {site.suppliers.map((s) => (
-              <div key={s.name} className="rounded-xl bg-white p-8 shadow-card">
-                <h3 className="text-xl font-semibold text-ink">{s.name}</h3>
-                <p className="mt-2 text-sm text-ink-muted">{s.blurb}</p>
-              </div>
-            ))}
+          <div className="md:col-span-2 text-ink-muted text-lg leading-relaxed">
+            <p>
+              Although Flexo Africa was established in {site.founded}, our team brings over
+              two decades of hands-on flexographic experience across every substrate
+              you'll find on a press floor. From films and foils to corrugated and
+              labels, we've helped printers ship work on all of it.
+            </p>
+            <p className="mt-4">
+              That depth shapes how we work. We know which plate suits which job, where
+              QC matters most, and how to flag problems before they reach your press.
+            </p>
           </div>
         </div>
       </section>
@@ -62,8 +62,8 @@ export default function AboutPage() {
             </p>
             <address className="not-italic mt-4 text-ink">
               {a.line1 !== "TBD" && <>{a.line1}<br /></>}
-              {a.line2}, {a.city}<br />
-              {a.province}, {a.country}
+              {a.city}, {a.province}<br />
+              {a.country}
             </address>
           </div>
         </div>

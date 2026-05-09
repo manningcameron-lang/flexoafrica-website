@@ -2,7 +2,7 @@ import { site } from "@/lib/site";
 
 export const metadata = {
   title: "Client Portal",
-  description: "Sign in to the Flexo Africa management information system.",
+  description: "Sign in to your Flexo Africa Client Portal to track your jobs in real time.",
 };
 
 export default function PortalPage() {
@@ -10,12 +10,12 @@ export default function PortalPage() {
     <section className="min-h-[70vh] flex items-center bg-surface-subtle">
       <div className="container-x py-16">
         <div className="mx-auto max-w-xl rounded-2xl bg-white p-10 shadow-card text-center">
-          <span className="eyebrow">Staff portal</span>
+          <span className="eyebrow">Client Portal</span>
           <h1 className="mt-3 text-3xl sm:text-4xl font-bold tracking-tight text-ink">
-            Sign in to the Flexo Africa MIS
+            Sign in to your Client Portal
           </h1>
           <p className="mt-4 text-ink-muted">
-            Internal job tracking system for the Flexo Africa team.
+            Track your flexographic plate jobs in real time, from artwork through to delivery.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3">
@@ -38,7 +38,7 @@ export default function PortalPage() {
           </div>
 
           <div className="mt-10 rounded-md bg-surface-subtle px-4 py-3 text-xs text-ink-muted">
-            Customer access coming soon. <a href="/contact" className="text-accent font-semibold underline-offset-4 hover:underline">Contact us</a> if you'd like to discuss visibility into your jobs.
+            Need an account? <a href="/contact" className="text-accent font-semibold underline-offset-4 hover:underline">Contact us</a> and we'll set you up.
           </div>
         </div>
       </div>

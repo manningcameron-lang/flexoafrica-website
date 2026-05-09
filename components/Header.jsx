@@ -48,7 +48,7 @@ export default function Header() {
             rel="noopener noreferrer"
             className="btn-primary"
           >
-            Sign In
+            Client Portal
             <ArrowIcon className="ml-2 h-4 w-4" />
           </a>
         </div>
@@ -81,7 +81,7 @@ export default function Header() {
               rel="noopener noreferrer"
               className="btn-primary mt-2 self-start"
             >
-              Sign In to MIS
+              Client Portal
             </a>
           </div>
         </div>
