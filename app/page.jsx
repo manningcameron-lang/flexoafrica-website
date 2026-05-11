@@ -17,7 +17,7 @@ export default function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-surface via-surface-subtle to-surface">
-      <div className="container-x py-24 sm:py-32">
+      <div className="container-x relative py-24 sm:py-32 z-10">
         <div className="max-w-3xl">
           <span className="eyebrow">Flexographic plate brokerage</span>
           <h1 className="mt-4 text-4xl sm:text-6xl font-bold tracking-tight text-ink">
@@ -36,9 +36,23 @@ function Hero() {
           </div>
         </div>
       </div>
-      {/* Decorative gradient block */}
-      <div className="pointer-events-none absolute -right-24 top-1/2 -translate-y-1/2 hidden lg:block">
-        <div className="h-[420px] w-[420px] rounded-full bg-accent/10 blur-3xl" />
+
+      {/* Decorative logo on the right (desktop only) */}
+      <div className="pointer-events-none absolute -right-16 top-1/2 -translate-y-1/2 hidden lg:block">
+        <img
+          src="/images/logo.png"
+          alt=""
+          aria-hidden="true"
+          className="h-[420px] w-auto opacity-15"
+        />
+      </div>
+
+      {/* Soft color wash */}
+      <div className="pointer-events-none absolute -right-24 top-1/4 hidden lg:block">
+        <div className="h-[300px] w-[300px] rounded-full bg-accent/10 blur-3xl" />
+      </div>
+      <div className="pointer-events-none absolute right-1/3 bottom-0 hidden lg:block">
+        <div className="h-[260px] w-[260px] rounded-full bg-brand-blue/10 blur-3xl" />
       </div>
     </section>
   );

@@ -61,9 +61,7 @@ export default function AboutPage() {
               across South Africa.
             </p>
             <address className="not-italic mt-4 text-ink">
-              {a.line1 !== "TBD" && <>{a.line1}<br /></>}
-              {a.city}, {a.province}<br />
-              {a.country}
+              {a.city}, {a.province}, {a.country}
             </address>
           </div>
         </div>

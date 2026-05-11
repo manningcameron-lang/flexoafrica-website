@@ -27,6 +27,7 @@ export default function Footer() {
             <li><Link href="/" className="text-white/80 hover:text-white">Home</Link></li>
             <li><Link href="/about" className="text-white/80 hover:text-white">About</Link></li>
             <li><Link href="/services" className="text-white/80 hover:text-white">Services</Link></li>
+            <li><Link href="/faq" className="text-white/80 hover:text-white">FAQ</Link></li>
             <li><Link href="/contact" className="text-white/80 hover:text-white">Contact</Link></li>
             <li><Link href="/portal" className="text-white/80 hover:text-white">Client Portal</Link></li>
           </ul>
@@ -59,8 +60,7 @@ export default function Footer() {
             </li>
             <li className="text-white/70 pt-2">{site.contact.hours}</li>
             <li className="pt-2 text-white/70">
-              {a.city}, {a.province}<br />
-              {a.country}
+              {a.city}, {a.province}, {a.country}
             </li>
           </ul>
         </div>
