@@ -70,16 +70,11 @@ export default function Footer() {
             Client Portal
           </h4>
           <p className="mt-4 text-sm text-white/80">
-            Track your jobs in real time on our portal.
+            Real-time job tracking, coming soon. Register your interest to get early access.
           </p>
-          <a
-            href={site.misUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mt-4"
-          >
-            Open Client Portal
-          </a>
+          <Link href="/portal" className="btn-primary mt-4">
+            Learn More
+          </Link>
         </div>
       </div>
 

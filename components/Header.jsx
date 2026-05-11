@@ -42,15 +42,10 @@ export default function Header() {
           <Link href="/contact" className="text-sm text-ink-muted hover:text-ink">
             Get a quote
           </Link>
-          <a
-            href={site.misUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
+          <Link href="/portal" className="btn-primary">
             Client Portal
             <ArrowIcon className="ml-2 h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <button
@@ -75,14 +70,13 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <a
-              href={site.misUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/portal"
               className="btn-primary mt-2 self-start"
+              onClick={() => setOpen(false)}
             >
               Client Portal
-            </a>
+            </Link>
           </div>
         </div>
       )}
