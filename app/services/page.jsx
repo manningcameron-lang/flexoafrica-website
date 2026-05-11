@@ -164,25 +164,32 @@ function Process() {
                 {step.blurb}
               </p>
               {step.highlight && (
-                <Link
-                  href="/portal"
+                <a
+                  href={site.portalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white underline-offset-4 hover:underline"
                 >
-                  Notify me when it launches
+                  Open the Client Portal
                   <ArrowIcon />
-                </Link>
+                </a>
               )}
             </div>
           ))}
         </div>
 
         <div className="mt-12 rounded-xl border border-ink/10 bg-surface-subtle p-6 text-sm text-ink-muted">
-          <strong className="text-ink">Want real-time visibility on your jobs?</strong>{" "}
-          Our Client Portal is launching soon.{" "}
-          <Link href="/portal" className="text-accent font-semibold underline-offset-4 hover:underline">
-            Register your interest
-          </Link>{" "}
-          to be notified.
+          <strong className="text-ink">Already a customer?</strong>{" "}
+          Sign in to your{" "}
+          <a
+            href={site.portalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent font-semibold underline-offset-4 hover:underline"
+          >
+            Client Portal
+          </a>{" "}
+          to track your jobs in real time.
         </div>
       </div>
     </section>

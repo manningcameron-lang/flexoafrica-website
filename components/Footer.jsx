@@ -29,7 +29,16 @@ export default function Footer() {
             <li><Link href="/services" className="text-white/80 hover:text-white">Services</Link></li>
             <li><Link href="/faq" className="text-white/80 hover:text-white">FAQ</Link></li>
             <li><Link href="/contact" className="text-white/80 hover:text-white">Contact</Link></li>
-            <li><Link href="/portal" className="text-white/80 hover:text-white">Client Portal</Link></li>
+            <li>
+              <a
+                href={site.portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white"
+              >
+                Client Portal
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -70,11 +79,16 @@ export default function Footer() {
             Client Portal
           </h4>
           <p className="mt-4 text-sm text-white/80">
-            Real-time job tracking, coming soon. Register your interest to get early access.
+            Track your plate jobs in real time on our portal.
           </p>
-          <Link href="/portal" className="btn-primary mt-4">
-            Learn More
-          </Link>
+          <a
+            href={site.portalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-4"
+          >
+            Open Client Portal
+          </a>
         </div>
       </div>
 

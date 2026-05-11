@@ -101,15 +101,20 @@ export default function ContactPage() {
         <div className="container-x">
           <div className="rounded-2xl bg-ink text-white p-10 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold">Client Portal coming soon.</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold">Already a customer?</h3>
               <p className="mt-2 text-white/80 max-w-xl">
-                Track your jobs in real time, from artwork to delivery. Register your
-                interest to be notified when we launch.
+                Sign in to your Client Portal to track your jobs in real time, from
+                artwork to delivery.
               </p>
             </div>
-            <Link href="/portal" className="btn-primary whitespace-nowrap">
-              Learn More
-            </Link>
+            <a
+              href={site.portalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary whitespace-nowrap"
+            >
+              Open Client Portal
+            </a>
           </div>
         </div>
       </section>
