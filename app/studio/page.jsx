@@ -24,6 +24,8 @@ export default function StudioPage() {
   );
 }
 
+/* ─── Mockups ─────────────────────────────────────────────────────────────── */
+
 function MockupsSection() {
   return (
     <section className="section">
@@ -42,17 +44,26 @@ function MockupsSection() {
             Get a Quote
           </Link>
         </div>
-        <Placeholder icon="mockup" label="Mock-up preview" />
+        <StudioImage
+          src="https://images.unsplash.com/photo-1585221330389-24fb30535ec7?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+          alt="Clean product packaging mock-up on a white surface"
+        />
       </div>
     </section>
   );
 }
 
+/* ─── 3D Renderings ───────────────────────────────────────────────────────── */
+
 function RenderingsSection() {
   return (
     <section className="section bg-surface-subtle">
       <div className="container-x grid gap-12 md:grid-cols-2 items-center">
-        <Placeholder icon="cube" label="3D rendering preview" className="order-last md:order-first" />
+        <StudioImage
+          src="https://images.unsplash.com/photo-1622737133809-d95047b9e673?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+          alt="Photo-realistic 3D render of a cardboard packaging box"
+          className="order-last md:order-first"
+        />
         <div>
           <span className="eyebrow">3D Renderings</span>
           <h2 className="mt-3 text-3xl font-bold text-ink">
@@ -72,6 +83,8 @@ function RenderingsSection() {
   );
 }
 
+/* ─── Short Digital Runs ──────────────────────────────────────────────────── */
+
 function DigitalRunsSection() {
   return (
     <section className="section">
@@ -89,53 +102,33 @@ function DigitalRunsSection() {
             Get a Quote
           </Link>
         </div>
-        <Placeholder icon="stack" label="Digital run preview" />
+        <StudioImage
+          src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+          alt="Industrial digital printing machine in operation"
+        />
       </div>
     </section>
   );
 }
 
-function Placeholder({ icon, label, className = "" }) {
+/* ─── Shared image component ──────────────────────────────────────────────── */
+
+function StudioImage({ src, alt, className = "" }) {
   return (
     <div
-      className={`flex items-center justify-center rounded-2xl bg-gradient-to-br from-ink/5 via-accent/5 to-brand-blue/10 border border-ink/10 aspect-[4/3] ${className}`}
-      aria-label={label}
+      className={`rounded-2xl overflow-hidden aspect-[4/3] bg-surface-subtle ${className}`}
     >
-      <PlaceholderIcon name={icon} />
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
     </div>
   );
 }
 
-function PlaceholderIcon({ name }) {
-  const cls = "h-20 w-20 text-ink/20";
-  if (name === "mockup") {
-    return (
-      <svg className={cls} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <rect x="6" y="8" width="52" height="36" rx="3" />
-        <rect x="10" y="12" width="44" height="28" rx="1" />
-        <path d="M26 44v6M38 44v6M20 50h24" strokeLinecap="round" />
-        <path d="M16 20h20M16 25h16M16 30h12" strokeLinecap="round" />
-        <rect x="38" y="18" width="12" height="16" rx="1" />
-      </svg>
-    );
-  }
-  if (name === "cube") {
-    return (
-      <svg className={cls} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <path d="M32 8L56 20v24L32 56 8 44V20L32 8z" />
-        <path d="M32 8v48M56 20L32 32 8 20" strokeLinecap="round" />
-      </svg>
-    );
-  }
-  return (
-    <svg className={cls} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-      <rect x="14" y="22" width="36" height="28" rx="2" />
-      <path d="M10 18h36a2 2 0 012 2v0" strokeLinecap="round" />
-      <path d="M6 14h36a2 2 0 012 2v0" strokeLinecap="round" />
-      <path d="M20 30h16M20 36h12" strokeLinecap="round" />
-    </svg>
-  );
-}
+/* ─── Page header ─────────────────────────────────────────────────────────── */
 
 function PageHeader({ eyebrow, title, subtitle }) {
   return (
