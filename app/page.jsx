@@ -9,6 +9,7 @@ export default function HomePage() {
       <TrustStrip />
       <WhatWeDo />
       <WhyUs />
+      <StudioTeaser />
       <CTABanner />
     </>
   );
@@ -128,6 +129,75 @@ function WhyUs() {
         </ul>
       </div>
     </section>
+  );
+}
+
+function StudioTeaser() {
+  return (
+    <section className="section bg-surface-subtle">
+      <div className="container-x">
+        <div className="max-w-2xl">
+          <span className="eyebrow">Studio services</span>
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-ink">
+            Mock-ups, renderings, and short runs.
+          </h2>
+          <p className="mt-3 text-ink-muted">
+            Need to visualise artwork before print, or a small quantity run that doesn't
+            justify a full plate job? We cover that too.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {site.studioServices.map((s) => (
+            <div
+              key={s.title}
+              className="rounded-xl border border-ink/10 bg-white p-8 shadow-card transition-shadow hover:shadow-cardHover"
+            >
+              <StudioIcon name={s.icon} />
+              <h3 className="mt-5 text-lg font-semibold text-ink">{s.title}</h3>
+              <p className="mt-2 text-sm text-ink-muted">{s.tagline}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <Link href="/studio" className="btn-secondary inline-flex">
+            Explore Studio Services
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StudioIcon({ name }) {
+  const cls = "h-10 w-10 text-accent";
+  if (name === "mockup") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="1" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M8 21h8M12 17v4" strokeLinecap="round" />
+        <path d="M6 7h7M6 10h5" strokeLinecap="round" />
+        <rect x="15" y="6" width="4" height="6" rx="0.5" />
+      </svg>
+    );
+  }
+  if (name === "cube") {
+    return (
+      <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+        <path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 3v18M21 7.5L12 12l-9-4.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
+  }
+  // stack
+  return (
+    <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d="M6 9h12a1 1 0 011 1v8a1 1 0 01-1 1H6a1 1 0 01-1-1v-8a1 1 0 011-1z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 7h14" strokeLinecap="round" />
+      <path d="M2 5h14" strokeLinecap="round" />
+      <path d="M9 13h6M9 16h4" strokeLinecap="round" />
+    </svg>
   );
 }
 
