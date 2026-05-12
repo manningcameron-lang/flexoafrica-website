@@ -86,26 +86,64 @@ function RenderingsSection() {
 /* ─── Short Digital Runs ──────────────────────────────────────────────────── */
 
 function DigitalRunsSection() {
+  const pouches = site.digitalRunPouches;
   return (
     <section className="section">
-      <div className="container-x grid gap-12 md:grid-cols-2 items-center">
-        <div>
-          <span className="eyebrow">Short Digital Runs</span>
-          <h2 className="mt-3 text-3xl font-bold text-ink">
-            Small quantities, no minimums.
-          </h2>
-          <p className="mt-4 text-ink-muted text-lg leading-relaxed">
-            Need a short run for a launch, test market, or promotion? We handle
-            digital runs where traditional plate printing isn't the right fit.
-          </p>
-          <Link href="/contact" className="btn-primary mt-8 inline-flex">
-            Get a Quote
-          </Link>
+      <div className="container-x">
+        {/* Intro — two columns */}
+        <div className="grid gap-12 md:grid-cols-2 items-center">
+          <div>
+            <span className="eyebrow">Short Digital Runs</span>
+            <h2 className="mt-3 text-3xl font-bold text-ink">
+              Custom-printed stand-up zipper pouches.
+            </h2>
+            <p className="mt-4 text-ink-muted text-lg leading-relaxed">
+              No plates, no artwork restrictions. Print any design directly onto
+              stand-up zipper pouches — ideal for product launches, test markets,
+              and short promotional runs. Five standard sizes available with low
+              minimum orders per variant.
+            </p>
+            <Link href="/contact" className="btn-primary mt-8 inline-flex">
+              Get a Quote
+            </Link>
+          </div>
+          <StudioImage
+            src="https://images.unsplash.com/photo-1640941978130-bd19c18c5949?fm=jpg&q=80&w=1200&auto=format&fit=crop"
+            alt="Stand-up zipper pouch packaging on a table"
+          />
         </div>
-        <StudioImage
-          src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?fm=jpg&q=80&w=1200&auto=format&fit=crop"
-          alt="Industrial digital printing machine in operation"
-        />
+
+        {/* Sizing table */}
+        <div className="mt-12 overflow-x-auto rounded-2xl border border-ink/10">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-surface-subtle text-left">
+                <th className="px-5 py-4 font-semibold text-ink">Size</th>
+                <th className="px-5 py-4 font-semibold text-ink">Volume</th>
+                <th className="px-5 py-4 font-semibold text-ink">Height (mm)</th>
+                <th className="px-5 py-4 font-semibold text-ink">Width (mm)</th>
+                <th className="px-5 py-4 font-semibold text-ink">Gusset (mm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pouches.map((p, i) => (
+                <tr
+                  key={p.size}
+                  className={i % 2 === 0 ? "bg-white" : "bg-surface-subtle/50"}
+                >
+                  <td className="px-5 py-3 font-semibold text-ink">{p.size}</td>
+                  <td className="px-5 py-3 text-ink-muted">{p.volume}</td>
+                  <td className="px-5 py-3 text-ink-muted">{p.height}</td>
+                  <td className="px-5 py-3 text-ink-muted">{p.width}</td>
+                  <td className="px-5 py-3 text-ink-muted">{p.gusset}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 text-sm text-ink-muted">
+          Low minimum orders per variant. Contact us for pricing and lead times.
+        </p>
       </div>
     </section>
   );
