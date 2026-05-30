@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact",
@@ -79,6 +80,23 @@ export default function ContactPage() {
       </section>
 
       <section className="section bg-surface-subtle">
+        <div className="container-x">
+          <div className="max-w-2xl">
+            <span className="eyebrow">Send a quote request</span>
+            <h2 className="mt-3 text-3xl font-bold text-ink">
+              Tell us about the job.
+            </h2>
+            <p className="mt-3 text-ink-muted">
+              We'll come back to you within one business day.
+            </p>
+            <div className="mt-8">
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container-x">
           <span className="eyebrow">Find us</span>
           <h2 className="mt-3 text-3xl font-bold text-ink">Durban, KwaZulu-Natal</h2>
