@@ -4,8 +4,6 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [status, setStatus] = useState({ state: "idle", message: "" });
-  const endpoint =
-    process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "";
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -13,20 +11,10 @@ export default function ContactForm() {
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    if (!endpoint) {
-      setStatus({
-        state: "error",
-        message:
-          "Form not yet configured. Set NEXT_PUBLIC_FORMSPREE_ENDPOINT in .env.local.",
-      });
-      return;
-    }
-
     try {
-      const res = await fetch(endpoint, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         body: data,
-        headers: { Accept: "application/json" },
       });
       if (res.ok) {
         form.reset();
