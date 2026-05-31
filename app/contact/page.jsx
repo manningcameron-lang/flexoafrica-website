@@ -4,12 +4,21 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact",
-  description: `Get in touch with ${site.name}. Phone, WhatsApp, email and Durban-based contact details.`,
+  description: `Get in touch with ${site.name}. Phone, WhatsApp, email and contact details.`,
 };
 
 export default function ContactPage() {
-  const a = site.contact.address;
   const mapsSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.contact.mapsQuery)}&output=embed`;
+
+  const saLocations = site.contact.serviceLocations
+    .filter((l) => l.country === "South Africa")
+    .map((l) => l.label)
+    .join(", ");
+
+  const otherLocations = site.contact.serviceLocations
+    .filter((l) => l.country !== "South Africa")
+    .map((l) => l.country)
+    .join(", ");
 
   return (
     <>
@@ -66,13 +75,11 @@ export default function ContactPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-widest text-ink-muted">
-                Based in
+                Where we plate
               </h3>
-              <p className="mt-2 text-ink">
-                {a.city}, {a.province}, {a.country}
-              </p>
+              <p className="mt-2 text-ink">{saLocations}</p>
               <p className="mt-1 text-sm text-ink-muted">
-                Delivering plates to printers across South Africa.
+                Also plating in {otherLocations}.
               </p>
             </div>
           </div>
