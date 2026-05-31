@@ -7,7 +7,16 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  const a = site.contact.address;
+  const saLocations = site.contact.serviceLocations
+    .filter((l) => l.country === "South Africa")
+    .map((l) => l.label)
+    .join(", ");
+
+  const otherLocations = site.contact.serviceLocations
+    .filter((l) => l.country !== "South Africa")
+    .map((l) => l.country)
+    .join(", ");
+
   return (
     <>
       <PageHeader
@@ -52,17 +61,17 @@ export default function AboutPage() {
       <section className="section">
         <div className="container-x grid gap-12 md:grid-cols-3">
           <div className="md:col-span-1">
-            <span className="eyebrow">Where we are</span>
+            <span className="eyebrow">Where we plate</span>
             <h2 className="mt-3 text-2xl font-bold text-ink">Based in Durban, KZN</h2>
           </div>
           <div className="md:col-span-2 text-ink-muted">
             <p>
-              Our team is based in Durban, KwaZulu-Natal. We deliver plates to printers
-              across South Africa.
+              Our team is based in Durban, KwaZulu-Natal. We can produce plates in
+              {" "}{saLocations}.
             </p>
-            <address className="not-italic mt-4 text-ink">
-              {a.city}, {a.province}, {a.country}
-            </address>
+            <p className="mt-2">
+              Also plating in {otherLocations}.
+            </p>
           </div>
         </div>
       </section>
