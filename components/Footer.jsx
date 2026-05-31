@@ -3,7 +3,16 @@ import { site } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const a = site.contact.address;
+
+  const saLocations = site.contact.serviceLocations
+    .filter((l) => l.country === "South Africa")
+    .map((l) => l.label)
+    .join(" · ");
+
+  const otherLocations = site.contact.serviceLocations
+    .filter((l) => l.country !== "South Africa")
+    .map((l) => l.country)
+    .join(" · ");
 
   return (
     <footer className="bg-ink text-white mt-20">
@@ -68,9 +77,8 @@ export default function Footer() {
               </a>
             </li>
             <li className="text-white/70 pt-2">{site.contact.hours}</li>
-            <li className="pt-2 text-white/70">
-              {a.city}, {a.province}, {a.country}
-            </li>
+            <li className="pt-2 text-white/70">{saLocations}</li>
+            <li className="text-white/70">{otherLocations}</li>
           </ul>
         </div>
 
