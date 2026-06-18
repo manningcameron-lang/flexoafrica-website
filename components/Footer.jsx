@@ -38,6 +38,7 @@ export default function Footer() {
             <li><Link href="/services" className="text-white/80 hover:text-white">Services</Link></li>
             <li><Link href="/faq" className="text-white/80 hover:text-white">FAQ</Link></li>
             <li><Link href="/contact" className="text-white/80 hover:text-white">Contact</Link></li>
+              <li><Link href="/policies" className="text-white/80 hover:text-white">Policies</Link></li>
             <li>
               <a
                 href={site.portalUrl}
