@@ -90,25 +90,19 @@ git status --short | head -80
 echo ""
 
 # ---------------------------------------------------------------------------
-# 4. Optional local build (skipped if npm cache is broken)
+# 4. Install (always — package.json may have changed) + build
 # ---------------------------------------------------------------------------
-# Use an isolated cache to sidestep root-owned files in ~/.npm.
-export npm_config_cache="/tmp/npm-cache-flexoafrica"
-mkdir -p "$npm_config_cache"
-
-if [ ! -d node_modules ]; then
+echo ""
+echo "--- npm install (respects package.json changes) ---"
+if ! npm install --no-audit --no-fund --prefer-offline; then
   echo ""
-  echo "--- npm install (isolated cache) ---"
-  if ! npm install --no-audit --no-fund --prefer-offline; then
-    echo ""
-    echo "npm install failed. Skipping local build."
-    echo "Vercel will run the build on its side."
-    echo ""
-    echo "To fix your npm cache permanently, in a new Terminal run:"
-    echo "  sudo chown -R \$(id -u):\$(id -g) ~/.npm"
-    echo ""
-    SKIP_BUILD=1
-  fi
+  echo "npm install failed. Skipping local build."
+  echo "Vercel will run the build on its side."
+  echo ""
+  echo "If it's an ~/.npm ownership problem, double-click:"
+  echo "  fix-npm-cache.command"
+  echo ""
+  SKIP_BUILD=1
 fi
 
 if [ -z "$SKIP_BUILD" ] && [ -d node_modules ]; then
