@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: "How will I track my job?",
-    a: "Our Client Portal is launching soon. It will give you real-time visibility on every stage of your job, from artwork through QC, plate-making, and delivery. Register your interest on the Client Portal page to be notified when it goes live.",
+    a: "Sign in to your Client Portal at portal.flexoafrica.com to see every stage of your job in real time, from artwork through QC, plate-making, and delivery. New customer? Use the Sign up link to register. We approve new accounts within one business day.",
   },
   {
     q: "What payment terms do you offer?",

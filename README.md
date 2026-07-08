@@ -1,13 +1,24 @@
 # Flexo Africa Website
 
-Marketing site for **flexoafrica.com**. Pairs with the MIS at jobs.flexoafrica.com.
+Marketing site for **flexoafrica.com**. Companion sites:
+
+- **portal.flexoafrica.com** — Client Portal (plate ordering + job tracking)
+- **tools.flexoafrica.com** — Prepress Tools (subscription)
+- **jobs.flexoafrica.com** — internal MIS (staff bookmark only, not linked publicly)
+
+## Stack
+
+- Next.js 14 (App Router)
+- Tailwind CSS
+- Resend (contact form -> sales@flexoafrica.com)
+- Vercel (auto-deploys on push to `main`)
 
 ## Quick start
 
 ```bash
 cd "/Users/cameron/Documents/Claude/Projects/Flexo Africa Website"
 npm install
-cp .env.local.example .env.local   # then fill in NEXT_PUBLIC_FORMSPREE_ENDPOINT
+cp .env.local.example .env.local   # then fill in RESEND_API_KEY
 npm run dev
 ```
 
@@ -17,84 +28,84 @@ Open http://localhost:3000
 
 Almost all content lives in **`lib/site.js`**. Edit that one file to change:
 
-- Tagline, description
-- Stats on the home page
-- Services, why-us bullets
-- Supplier blurbs
-- Plate ranges (Polyflex 11 + Stallion 9)
-- Process steps
-- QA checklist
-- Founder story (About page)
-- Contact details (phone, email, address, hours)
+- Tagline, description, stats
+- Services + why-us bullets
+- Process steps + QA checklist
+- Studio services + digital-run pouches
+- Founder story
+- Contact details, service locations
+- Tools list, tools pricing tiers
+- Plate tiers + turnaround times
 
 Page-specific layouts live in `app/<page>/page.jsx`.
 
-## TBDs to fill in `lib/site.js`
-
-- `founded` year
-- `yearsExperience`
-- `contact.phone`
-- `contact.email`
-- `contact.address.line1` and `postalCode`
-
-## Logo
-
-Drop your logo file in `public/images/logo.svg` (or .png). Then in `components/Header.jsx`
-and `components/Footer.jsx`, replace the `LogoMark` placeholder with `<img src="/images/logo.svg" />`.
-
 ## Form (contact / quote)
 
-Uses **Formspree** for submissions. To enable:
+Uses **Resend** for outbound email. The `/api/contact` route escapes all user
+input before sending to `sales@flexoafrica.com`.
 
-1. Sign up at https://formspree.io (free tier: 50 submissions/month)
-2. Create a new form, copy the form endpoint URL
+To enable locally:
+
+1. Sign up at https://resend.com and verify the flexoafrica.com domain
+2. Generate an API key
 3. Paste it into `.env.local`:
    ```
-   NEXT_PUBLIC_FORMSPREE_ENDPOINT=https://formspree.io/f/YOUR_FORM_ID
+   RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
    ```
 4. Restart `npm run dev`
 
-## Deploy to Vercel
+For production, set `RESEND_API_KEY` in the Vercel project settings.
+
+## Deploy
+
+Push to `main`, Vercel auto-deploys. Manual override:
 
 ```bash
-# from the project folder
-vercel link    # links to Vercel project (first time only)
-vercel --prod  # deploys to production
+vercel --prod
 ```
 
-After first deploy, configure the custom domain in the Vercel dashboard
-(Settings → Domains → add `flexoafrica.com` and `www.flexoafrica.com`),
-then update DNS records at Afrihost per Vercel's instructions.
+Custom domain (`flexoafrica.com`, `www.flexoafrica.com`) is configured in the
+Vercel dashboard. DNS lives at Afrihost.
 
 ## Project structure
 
 ```
 app/
-  layout.jsx          # root layout, metadata, fonts
-  globals.css         # Tailwind + design tokens
-  page.jsx            # Home
+  layout.jsx           # root layout, metadata, fonts
+  globals.css          # Tailwind + design tokens
+  robots.js            # /robots.txt
+  sitemap.js           # /sitemap.xml
+  page.jsx             # Home
   about/page.jsx
   services/page.jsx
+  studio/page.jsx
+  tools/page.jsx       # sells tools.flexoafrica.com
+  order-plates/page.jsx # sells portal.flexoafrica.com configurator
   contact/page.jsx
-  portal/page.jsx     # MIS sign-in landing
+  faq/page.jsx
+  policies/page.jsx
+  portal/page.jsx      # 307-redirects to portal.flexoafrica.com
+  api/contact/route.js # Resend email handler
 components/
-  Header.jsx          # sticky nav with Sign In button
+  Header.jsx
   Footer.jsx
-  CTABanner.jsx       # reusable Get a Quote banner
-  ContactForm.jsx     # Formspree-backed form
+  CTABanner.jsx
+  ContactForm.jsx
+  SelfServeStrip.jsx   # homepage tools + order-plates cards
 lib/
-  site.js             # ALL content lives here
+  site.js              # ALL content lives here
 public/
-  images/             # drop your logo here
+  images/              # logo
 ```
 
 ## Brand
 
 | Token | Value | Usage |
 | --- | --- | --- |
-| `ink` | `#0F172A` | Primary text, dark sections |
-| `accent` | `#F97316` | CTAs, highlights |
+| `ink` | `#0F2E5F` | Primary text, dark sections (navy from wordmark) |
+| `accent` | `#DC2626` | CTAs, highlights (red from logo stripe) |
 | `surface-subtle` | `#F8FAFC` | Page section backgrounds |
+| `brand-blue` | `#1E40AF` | Secondary highlight |
 | Font | Inter | Headings + body |
 
 Edit in `tailwind.config.js`.

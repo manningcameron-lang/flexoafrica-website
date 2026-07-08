@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
+import SelfServeStrip from "@/components/SelfServeStrip";
 
 export default function HomePage() {
   return (
@@ -8,6 +9,7 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <WhatWeDo />
+      <SelfServeStrip />
       <WhyUs />
       <StudioTeaser />
       <CTABanner />

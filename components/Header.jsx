@@ -1,34 +1,47 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { site } from "@/lib/site";
 
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/studio", label: "Studio" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/contact", label: "Contact" },
+  { href: "/",             label: "Home" },
+  { href: "/about",        label: "About" },
+  { href: "/services",     label: "Services" },
+  { href: "/tools",        label: "Tools" },
+  { href: "/order-plates", label: "Order Plates" },
+  { href: "/studio",       label: "Studio" },
+  { href: "/contact",      label: "Contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  // Close mobile menu on Escape (accessibility).
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-surface/95 backdrop-blur">
-      <div className="container-x flex h-16 items-center justify-between">
+      <div className="container-x flex h-16 items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2 text-ink font-semibold tracking-tight">
           <img
             src="/images/logo.png"
             alt={`${site.name} logo`}
+            width="120"
+            height="40"
             className="h-10 w-auto"
           />
           <span className="sr-only">{site.name}</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -40,10 +53,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Link href="/contact" className="text-sm text-ink-muted hover:text-ink">
-            Get a quote
-          </Link>
+        <div className="hidden lg:flex items-center gap-3">
           <a
             href={site.portalUrl}
             target="_blank"
@@ -56,16 +66,17 @@ export default function Header() {
         </div>
 
         <button
-          className="md:hidden p-2 text-ink"
+          className="lg:hidden p-2 text-ink"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
           <MenuIcon open={open} />
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-ink/10 bg-surface">
+        <div className="lg:hidden border-t border-ink/10 bg-surface">
           <div className="container-x py-4 flex flex-col gap-4">
             {nav.map((item) => (
               <Link
@@ -77,6 +88,13 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/faq"
+              className="text-sm text-ink-muted"
+              onClick={() => setOpen(false)}
+            >
+              FAQ
+            </Link>
             <a
               href={site.portalUrl}
               target="_blank"
@@ -115,7 +133,7 @@ function ArrowIcon({ className = "" }) {
 
 function MenuIcon({ open }) {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       {open ? (
         <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
       ) : (
