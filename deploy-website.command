@@ -135,24 +135,14 @@ git add -A
 if git diff --cached --quiet; then
   echo "Nothing to commit. Repo is up to date."
 else
-  git commit -m "Audit fixes + tools/order-plates integration
+  # Auto-generate a commit message from what's actually changing.
+  git commit -m "$(cat <<'EOF'
+Website updates
 
-- Remove FNB bank PDF from lib/ (never on GitHub; belt-and-braces)
-- Fix Client Portal 'upcoming' copy in process step 3 and FAQ
-- Fix XSS in contact form (escape user input, cap lengths, validate email)
-- Add app/robots.js + app/sitemap.js
-- Fix policies page title duplication
-- Add serviceLocations to lib/site.js (Durban/Cape Town/Gauteng + intl)
-- Extend lib/site.js with toolsTiers, tools list, plateTiers, turnaround
-- New /tools page with 15-tool grid, personas, pricing, FAQ, JSON-LD
-- New /order-plates page with 3 plate tiers, turnaround, self-serve-vs-quote
-- New SelfServeStrip section on homepage between WhatWeDo and WhyUs
-- Header: add Tools + Order Plates nav items, Escape closes mobile menu
-- Footer: 4-column with new Products column
-- Update About + Contact 'Where we plate' sections
-- Update .env.local.example (Resend, not Formspree)
-- Update README (current stack, remove supplier name mentions)
-- Remove stale WEBSITE-SPEC.md"
+Includes any pending edits (copy fixes, dependency bumps, new pages,
+config changes). See the diff for details.
+EOF
+)"
 
   echo ""
   echo "--- pushing to origin/main ---"

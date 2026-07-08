@@ -70,7 +70,7 @@ function Hero() {
           Order plates with live pricing and live tracking.
         </h1>
         <p className="mt-4 text-lg text-ink-muted max-w-2xl">
-          Three plate tiers, fourteen specs, {site.turnaround.express.time} to {site.turnaround.standard.time.split(" to ")[1]} hour turnaround.
+          Three plate tiers, fourteen specs. Standard {site.turnaround.standard.time} hour, Express {site.turnaround.express.time} hour turnaround.
           Get a price in seconds. No login needed for a quote.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
