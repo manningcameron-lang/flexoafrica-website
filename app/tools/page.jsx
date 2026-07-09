@@ -25,6 +25,17 @@ const jsonLd = {
     { "@type": "Offer", name: "Free",   price: "0",    priceCurrency: "ZAR", url: site.toolsSignupUrl },
     { "@type": "Offer", name: "Pro",    price: "899",  priceCurrency: "ZAR", url: site.toolsPricingUrl },
     { "@type": "Offer", name: "Studio", price: "2499", priceCurrency: "ZAR", url: site.toolsPricingUrl },
+    {
+      "@type": "Offer",
+      name: "Enterprise",
+      url: site.toolsPricingUrl,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "ZAR",
+        minPrice: "7499",
+        valueAddedTaxIncluded: false,
+      },
+    },
   ],
 };
 
@@ -233,7 +244,7 @@ function ToolsFaq() {
     },
     {
       q: "Do my colleagues need their own account?",
-      a: "Free and Pro plans are single-seat. Studio plans include team accounts so your studio can share access without sharing a password.",
+      a: "Free and Pro plans are single-seat. Studio includes team accounts for up to 3 seats. Enterprise has unlimited seats plus SSO for larger teams.",
     },
     {
       q: "Do you offer annual pricing?",
