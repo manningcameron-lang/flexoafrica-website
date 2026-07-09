@@ -149,12 +149,12 @@ function Pricing() {
           <span className="eyebrow">Pricing</span>
           <h2 className="mt-3 text-3xl font-bold text-ink">Simple plans, monthly.</h2>
           <p className="mt-3 text-ink-muted">
-            All prepress tools are on every plan. Upgrade for unlimited runs,
-            priority support, and team access.
+            All prepress tools are on every plan. Upgrade for more runs, team
+            accounts, priority support, and custom enterprise plans.
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {site.toolsTiers.map((tier) => (
             <div
               key={tier.name}
