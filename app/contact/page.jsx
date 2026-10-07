@@ -1,8 +1,10 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
+  ...pageSeo("/contact"),
   title: "Contact",
   description: `Get in touch with ${site.name}. Phone, WhatsApp, email and Durban-based contact details.`,
 };

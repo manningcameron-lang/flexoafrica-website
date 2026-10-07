@@ -1,8 +1,10 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
+  ...pageSeo("/studio"),
   title: "Studio Services",
   description:
     "Mock-ups, 3D renderings, and short digital runs from Flexo Africa. Get a quote today.",

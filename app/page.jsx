@@ -2,6 +2,11 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 import SelfServeStrip from "@/components/SelfServeStrip";
+import { pageSeo } from "@/lib/seo";
+
+export const metadata = {
+  ...pageSeo("/"),
+};
 
 export default function HomePage() {
   return (

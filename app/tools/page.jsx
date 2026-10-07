@@ -1,8 +1,10 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
+  ...pageSeo("/tools"),
   title: "Prepress Tools for Flexo Studios",
   description:
     "Flexo Africa Prepress Tools: 20+ browser-based tools for ink coverage, step & repeat, barcode verification, preflight, and more. Try it for 7 days.",

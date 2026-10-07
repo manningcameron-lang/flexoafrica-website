@@ -1,7 +1,9 @@
+import { pageSeo } from "@/lib/seo";
 // app/policies/page.jsx — flexoafrica-website repo
 // Title deliberately set to just "Policies" so root layout template
 // produces "Policies | Flexo Africa" (avoids duplicating brand name).
 export const metadata = {
+  ...pageSeo("/policies"),
   title: 'Policies',
   description:
     'Refund, privacy, terms and conditions, shipping, and exchange policies for Flexo Africa (Pty) Ltd.',

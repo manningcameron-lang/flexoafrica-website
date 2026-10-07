@@ -1,7 +1,9 @@
+import { pageSeo } from "@/lib/seo";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
+  ...pageSeo("/about"),
   title: "About",
   description: `Learn about ${site.name}, a flexographic plate broker based in Durban, KwaZulu-Natal.`,
 };

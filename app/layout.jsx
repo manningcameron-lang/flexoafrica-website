@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/site";
+import { baseOpenGraph } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,14 +19,7 @@ export const metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
-  openGraph: {
-    title: `${site.name} — ${site.tagline}`,
-    description: site.description,
-    url: site.url,
-    siteName: site.name,
-    locale: "en_ZA",
-    type: "website",
-  },
+  openGraph: { ...baseOpenGraph, url: "/" },
   robots: {
     index: true,
     follow: true,

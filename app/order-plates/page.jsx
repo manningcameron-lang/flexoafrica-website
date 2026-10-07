@@ -1,8 +1,10 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
+  ...pageSeo("/order-plates"),
   title: "Order Flexo Plates Online with Live Pricing",
   description:
     "Order flexographic plates online with live ZAR pricing and live tracking. Three tiers, fourteen specs, Standard 48-72 hour or Express 24-36 hour turnaround.",

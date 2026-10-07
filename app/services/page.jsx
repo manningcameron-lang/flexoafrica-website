@@ -1,8 +1,10 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import CTABanner from "@/components/CTABanner";
 
 export const metadata = {
+  ...pageSeo("/services"),
   title: "Services",
   description:
     "Flexographic plate brokerage, quality control and quick turnaround for printers across South Africa.",

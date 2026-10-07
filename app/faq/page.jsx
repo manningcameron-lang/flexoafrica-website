@@ -1,7 +1,9 @@
+import { pageSeo } from "@/lib/seo";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata = {
+  ...pageSeo("/faq"),
   title: "FAQ",
   description: `Common questions about ${site.name}: turnaround, substrates, quotes, quality control, delivery, payment.`,
 };
