@@ -46,6 +46,16 @@ export default function Footer() {
               </Link>
             </li>
             <li>
+              <a
+                href="https://tools.flexoafrica.com/free/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-white"
+              >
+                Free flexo prepress tools
+              </a>
+            </li>
+            <li>
               <Link href="/order-plates" className="text-white/80 hover:text-white">
                 Order Plates
               </Link>

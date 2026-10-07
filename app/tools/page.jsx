@@ -5,7 +5,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata = {
   title: "Prepress Tools for Flexo Studios",
   description:
-    "Flexo Africa Prepress Tools: 15+ browser-based tools for ink coverage, step & repeat, barcode verification, preflight, and more. Start free.",
+    "Flexo Africa Prepress Tools: 20+ browser-based tools for ink coverage, step & repeat, barcode verification, preflight, and more. Try it for 7 days.",
 };
 
 // JSON-LD for SoftwareApplication + tier Offers.
@@ -22,9 +22,9 @@ const jsonLd = {
     url: site.url,
   },
   offers: [
-    { "@type": "Offer", name: "Free",   price: "0",    priceCurrency: "ZAR", url: site.toolsSignupUrl },
-    { "@type": "Offer", name: "Pro",    price: "899",  priceCurrency: "ZAR", url: site.toolsPricingUrl },
-    { "@type": "Offer", name: "Studio", price: "2499", priceCurrency: "ZAR", url: site.toolsPricingUrl },
+    { "@type": "Offer", name: "7 day trial", price: "0",    priceCurrency: "ZAR", url: site.toolsSignupUrl },
+    { "@type": "Offer", name: "Pro",         price: "899",  priceCurrency: "ZAR", url: site.toolsPricingUrl },
+    { "@type": "Offer", name: "Studio",      price: "2499", priceCurrency: "ZAR", url: site.toolsPricingUrl },
     {
       "@type": "Offer",
       name: "Enterprise",
@@ -50,8 +50,8 @@ export default function ToolsPage() {
       <PageHeader
         eyebrow="Prepress tools"
         title="Flexo prepress tools, in your browser."
-        subtitle={`${site.toolsCount} purpose-built tools for ink coverage, step & repeat, preflight, barcode verification, and the rest of the daily studio grind. Start free.`}
-        ctaLabel="Start free"
+        subtitle={`${site.toolsCount} purpose-built tools for ink coverage, step & repeat, preflight, barcode verification, and the rest of the daily studio grind. Try it for 7 days.`}
+        ctaLabel="Start your 7 day trial"
         ctaHref={site.toolsSignupUrl}
         ctaSecondaryLabel="See pricing"
         ctaSecondaryHref="#pricing"
@@ -63,10 +63,10 @@ export default function ToolsPage() {
       <ToolsFaq />
 
       <CTABanner
-        title="Start with 3 free runs this month."
-        subtitle="No card. No trial expiry. Upgrade when you're ready."
+        title="Try the full toolkit for 7 days."
+        subtitle="No card. Full access for 7 days. Upgrade when you're ready."
         primaryHref={site.toolsSignupUrl}
-        primaryLabel="Start free"
+        primaryLabel="Start your 7 day trial"
       />
     </>
   );
@@ -244,7 +244,7 @@ function ToolsFaq() {
     },
     {
       q: "Do my colleagues need their own account?",
-      a: "Free and Pro plans are single-seat. Studio includes team accounts for up to 3 seats. Enterprise has unlimited seats plus SSO for larger teams.",
+      a: "The 7 day trial and Pro are single-seat. Studio includes team accounts for up to 3 seats. Enterprise has unlimited seats plus SSO for larger teams.",
     },
     {
       q: "Do you offer annual pricing?",
