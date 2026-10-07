@@ -29,7 +29,13 @@ const jsonLd = {
     name: "Plate tiers",
     itemListElement: site.plateTiers.map((t) => ({
       "@type": "Offer",
-      itemOffered: { "@type": "Product", name: t.name, description: t.blurb },
+      itemOffered: {
+        "@type": "Service",
+        name: t.name,
+        description: t.blurb,
+        serviceType: "Flexographic plate manufacturing",
+        provider: { "@type": "Organization", name: site.legalName, url: site.url },
+      },
       url: site.configuratorUrl,
     })),
   },
