@@ -30,11 +30,11 @@ export default function SelfServeStrip() {
               Prepress tools for flexo studios.
             </h3>
             <p className="mt-3 text-ink-muted">
-              {site.toolsCount}+ tools for ink coverage, step &amp; repeat, barcode
-              verification, preflight, and more. Runs in your browser. Start free.
+              {site.toolsCount} tools for ink coverage, step &amp; repeat, barcode
+              verification, preflight, and more. Runs in your browser. Try it for 7 days.
             </p>
             <ul className="mt-6 space-y-2 text-sm text-ink">
-              <li className="flex items-start gap-2"><Check /> From R0/mo, 3 free runs</li>
+              <li className="flex items-start gap-2"><Check /> 7 day trial, no card</li>
               <li className="flex items-start gap-2"><Check /> All {site.toolsCount} tools on every plan</li>
               <li className="flex items-start gap-2"><Check /> Used by South African converters</li>
             </ul>
@@ -46,7 +46,7 @@ export default function SelfServeStrip() {
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                Start free
+                Start your 7 day trial
               </a>
             </div>
           </div>
